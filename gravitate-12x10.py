@@ -3,7 +3,10 @@ import board
 import keypad
 import neopixel
 from time import sleep
+from adafruit_seesaw import digitalio, rotaryio, seesaw
 from utils import rainbow, key_to_pixel_map
+
+ORDER = neopixel.GRB
 
 
 # Parameters
@@ -20,22 +23,27 @@ pixels.fill((0, 0, 0))
 pos = None
 vel = None
 
-cols = 6
-rows = 5
+# Define x and y velocities, these are updated by the rotary encoder
+vel_x = 0.0
+vel_y = 0.0
 
+
+# Define number of rows and columns
+cols = 12
+rows = 10
+
+# Define bin edges
 bin_edges = [np.arange(0, rows+1), np.arange(0, cols+1)]
 
+# THIS NEEDS TO BE UPDATED
 keys = keypad.KeyMatrix(
     row_pins=(board.D21, board.D20, board.D16, board.D12, board.D1),
     column_pins=(board.D26, board.D19, board.D13, board.D6, board.D5, board.D0),
     columns_to_anodes=False,
 )
 
-
-
-
-
-pixels.fill((0, 0, 0))  # Begin with pixels off.
+# Begin with pixels off.
+pixels.fill((0, 0, 0))  
 
     
 # Simulation loop
@@ -49,13 +57,16 @@ while True:
             # get the row and column
             row, col = key_to_pixel_map(key_event.key_number, cols=cols)
 
+            print('added at', row, col)
+
             # add a particle to that position...
+
             if pos is None:
                 pos = np.array([[float(row)+0.5, float(col)+0.5]])
-                vel = np.array([[0., 0.]])
+                vel = np.array([[vel_x, vel_y]])
             else:
                 pos = np.append(pos, np.array([[float(row)+0.5, float(col)+0.5]]), axis=0)
-                vel = np.append(vel, np.array([[0, 0]]), axis=0)
+                vel = np.append(vel, np.array([[vel_x, vel_y]]), axis=0)
         
             print(pos)
 
