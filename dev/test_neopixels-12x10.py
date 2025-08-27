@@ -29,6 +29,6 @@ for i in range(npixels):
 
     print(i)
     pixels[i] = (255, 0, 0)
-    sleep(1)
+    sleep(0.2)
     pixels[i] = (0, 0, 0)
 
