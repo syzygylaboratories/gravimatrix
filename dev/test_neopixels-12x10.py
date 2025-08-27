@@ -19,8 +19,15 @@ sleep(1)
 # set all pixels to max (white)
 pixels.fill((255, 255, 255))
 
+sleep(2)
+
+# set all pixels to max (white)
+pixels.fill((0, 0, 0))
+
 # loop over each pixel in order lighting them up
 for i in range(npixels):
+
+    print(i)
 
     pixels[i] = (255, 0, 0)
     sleep(0.1)
