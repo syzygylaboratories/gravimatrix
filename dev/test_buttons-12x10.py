@@ -11,11 +11,16 @@ def key_to_pixel_map(key_number, cols):
 cols = 12
 rows = 10
 
+row_pins = (board.D26, board.D19, board.D13, board.D6, board.D5, board.D0, board.D11, board.D9, board.D10, board.D22)
+column_pins = (board.D14, board.D15, board.D23, board.D24, board.D25, board.D8, board.D7, board.D1, board.D12, board.D16, board.D20, board.D21)
+
+print(len(row_pins))
+print(len(column_pins))
 
 # THIS NEEDS TO BE UPDATED
 keys = keypad.KeyMatrix(
-    row_pins=(board.D26, board.D19, board.D13, board.D6, board.D5, board.D0, board.D11, board.D9, board.D10, board.D22),
-    column_pins=(board.D14, board.D15, board.D23, board.D24, board.D25, board.D8, board.D7, board.D1, board.D12, board.D16, board.D20, board.D21),
+    row_pins=row_pins,
+    column_pins=column_pins,
     columns_to_anodes=False,
 )
 
