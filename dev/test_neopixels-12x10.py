@@ -28,7 +28,7 @@ pixels.fill((0, 0, 0))
 for i in range(npixels):
 
     print(i)
-
     pixels[i] = (255, 0, 0)
-    sleep(0.1)
+    sleep(1)
+    pixels[i] = (0, 0, 0)
 
