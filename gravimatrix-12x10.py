@@ -8,13 +8,18 @@ from utils import rainbow, key_to_pixel_map
 
 ORDER = neopixel.GRB
 
+# Define number of rows and columns
+cols = 12
+rows = 10
+npixels = cols * rows
+
 
 # Parameters
 G = 1.0          # Gravitational constant
 dt = 0.1         # Time step
 softening = 0.5   # Softening length (epsilon)
 
-pixels = neopixel.NeoPixel(board.D18, 30, brightness=1)
+pixels = neopixel.NeoPixel(board.D18, npixels, brightness=1)
 
 # set all pixels to 0
 pixels.fill((0, 0, 0))
@@ -28,9 +33,7 @@ vel_x = 0.0
 vel_y = 0.0
 
 
-# Define number of rows and columns
-cols = 12
-rows = 10
+
 
 # Define bin edges
 bin_edges = [np.arange(0, rows+1), np.arange(0, cols+1)]
