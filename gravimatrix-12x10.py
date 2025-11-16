@@ -3,7 +3,7 @@ import board
 import keypad
 import neopixel
 from time import sleep
-from adafruit_seesaw import digitalio, rotaryio, seesaw
+# from adafruit_seesaw import digitalio, rotaryio, seesaw
 from utils import rainbow, key_to_pixel_map
 
 ORDER = neopixel.GRB
