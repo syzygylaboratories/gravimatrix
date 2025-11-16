@@ -33,12 +33,7 @@ grid = np.ones((cols, rows))
 flattened_grid = grid.flatten()
 
 
-def fix_pixel(pixel):
 
-    if pixel < 5*12:
-        return pixel
-    else:
-        return pixel + 12 - (pixel - 12*5)
 
 
 
@@ -48,16 +43,14 @@ for cell, value in enumerate(flattened_grid):
     row = cell // cols
     col = cell % cols
 
-    if row < rows:
-        if row % 2 == 1:
-            col = cols - col - 1
-        pixel = row * cols + col
+    if row % 2 == 1:
+        col = cols - col - 1
+    pixel = row * cols + col
 
-    pixel = fix_pixel(pixel)
+    print(row, col, pixel)
 
-    print(pixel)
     pixels[pixel] = (255, 0, 0)
-    sleep(0.1)
+    sleep(0.05)
     pixels[pixel] = (0, 0, 0)
 
 
