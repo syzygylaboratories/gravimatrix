@@ -37,9 +37,16 @@ for cell, value in enumerate(flattened_grid):
     # the ordering of the cells is different from the LEDs
     row = cell // cols
     col = cell % cols
-    if row % 2 == 1:
-        col = cols - col - 1
-    pixel = row * cols + col
+
+    if row < rows:
+        if row % 2 == 1:
+            col = cols - col - 1
+        pixel = row * cols + col
+    else:
+        if row % 2 == 2:
+            col = cols - col - 1
+        pixel = row * cols + col
+
 
     print(pixel)
     pixels[pixel] = (255, 0, 0)
