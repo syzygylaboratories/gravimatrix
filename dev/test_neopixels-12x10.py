@@ -52,22 +52,7 @@ for cell, value in enumerate(flattened_grid):
         
     pixel = row * cols + col
 
-
     pixels[pixel] = (255, 0, 0)
     sleep(0.05)
     pixels[pixel] = (0, 0, 0)
-
-
-
-
-
-
-
-# loop over each pixel in order lighting them up
-# for i in range(npixels):
-
-#     print(i)
-#     pixels[i] = (255, 0, 0)
-#     sleep(0.1)
-#     pixels[i] = (0, 0, 0)
 
