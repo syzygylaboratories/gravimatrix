@@ -115,6 +115,8 @@ while True:
                     col = cols - col - 1
                 
             pixel = row * cols + col
+
+            print(pixel)
             # pixels[i] = (255 * value / N, 0, 0)
             if value > 0:
                 pixels[pixel] = rainbow(value * 10)
