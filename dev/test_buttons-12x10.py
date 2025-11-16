@@ -2,6 +2,7 @@
 import board
 import keypad
 import neopixel
+import numpy as np
 
 def key_to_pixel_map(key_number, cols):
     row = key_number // cols
@@ -29,6 +30,9 @@ keys = keypad.KeyMatrix(
 
 pixels.fill((0, 0, 0))
 
+
+on = np.zeros(cols*rows)
+
 # Simulation loop
 while True:
 
@@ -52,6 +56,9 @@ while True:
                 
             pixel = row * cols + col
 
-            pixels[pixel] = (255, 0, 0)
+            if on[pixel] == 0:
+                pixels[pixel] = (255, 0, 0)
+            else:
+                pixels[pixel] = (0, 0, 0)
 
             
