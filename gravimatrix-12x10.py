@@ -36,9 +36,13 @@ rows = 10
 bin_edges = [np.arange(0, rows+1), np.arange(0, cols+1)]
 
 # THIS NEEDS TO BE UPDATED
+row_pins = (board.D26, board.D19, board.D13, board.D6, board.D5, board.D0, board.D11, board.D9, board.D10, board.D22)
+column_pins = (board.D14, board.D15, board.D23, board.D24, board.D12, board.D25, board.D16, board.D20, board.D21, board.D27, board.D17, board.D4)
+
+# THIS NEEDS TO BE UPDATED
 keys = keypad.KeyMatrix(
-    row_pins=(board.D21, board.D20, board.D16, board.D12, board.D1),
-    column_pins=(board.D26, board.D19, board.D13, board.D6, board.D5, board.D0),
+    row_pins=row_pins,
+    column_pins=column_pins,
     columns_to_anodes=False,
 )
 
@@ -102,10 +106,15 @@ while True:
             # the ordering of the cells is different from the LEDs
             row = cell // cols
             col = cell % cols
-            if row % 2 == 1:
-                col = cols - col - 1
-            pixel = row * cols + col
 
+            if row < rows // 2:
+                if row % 2 == 1:
+                    col = cols - col - 1
+            else:
+                if row % 2 == 0:
+                    col = cols - col - 1
+                
+            pixel = row * cols + col
             # pixels[i] = (255 * value / N, 0, 0)
             if value > 0:
                 pixels[pixel] = rainbow(value * 10)

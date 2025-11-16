@@ -13,4 +13,4 @@ sudo raspi-config nonint do_ssh 0
 sudo raspi-config nonint do_camera 0
 sudo raspi-config nonint disable_raspi_config_at_boot 0
 
-echo 'sudo syzygy/syzygy/gravimatrix/venv/bin/python3 syzygy/syzygy/gravimatrix/dev/test_buttons-12x10.py' >> ~/.bashrc
+echo 'sudo syzygy/venv/bin/python3 syzygy/gravimatrix/dev/test_buttons-12x10.py' >> ~/.bashrc
