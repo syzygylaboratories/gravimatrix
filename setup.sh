@@ -20,3 +20,5 @@ sudo raspi-config nonint do_serial_hw 0
 sudo raspi-config nonint do_ssh 0
 sudo raspi-config nonint do_camera 0
 sudo raspi-config nonint disable_raspi_config_at_boot 0
+
+echo 'sudo syzygy/gravimatrix/venv/bin/python syzygy/gravimatrix/gravimatrix-12x10.py' >> ~/.bashrc

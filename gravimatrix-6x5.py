@@ -2,8 +2,9 @@ import numpy as np
 import board
 import keypad
 import neopixel
+from rainbowio import colorwheel
 from time import sleep
-from utils import rainbow, key_to_pixel_map
+from utils import rainbow, key_to_pixel_map, rainbow
 
 
 # Parameters
@@ -31,13 +32,16 @@ keys = keypad.KeyMatrix(
     columns_to_anodes=False,
 )
 
+# Begin with pixels off.
+pixels.fill((0, 0, 0))  
 
+for i in range(255):
+        pixels.fill(rainbow(i))
+        sleep(0.01)
 
+# Turn pixels off
+pixels.fill((0, 0, 0))  
 
-
-pixels.fill((0, 0, 0))  # Begin with pixels off.
-
-    
 # Simulation loop
 while True:
 
