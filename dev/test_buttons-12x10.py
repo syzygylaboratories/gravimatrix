@@ -18,7 +18,7 @@ row_pins = (board.D26, board.D19, board.D13, board.D6, board.D5, board.D0, board
 row_pins = (board.D26, board.D19, board.D13, board.D6)
 # row_pins = (board.D26, board.D19)
 column_pins = (board.D14, board.D15, board.D23, board.D24, board.D25, board.D8, board.D7, board.D1, board.D12, board.D16, board.D20, board.D21)
-column_pins = (board.D14, board.D15, board.D23, board.D24, board.D25, board.D8)
+column_pins = (board.D14, board.D15, board.D23, board.D24, board.D25)
 # column_pins = (board.D14, board.D15)
 
 
