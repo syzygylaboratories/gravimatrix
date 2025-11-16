@@ -38,7 +38,7 @@ def fix_pixel(pixel):
     if pixel < 5*12:
         return pixel
     else:
-        return pixel + 12 - (pixel * 12*5)
+        return pixel + 12 - (pixel - 12*5)
 
 
 
