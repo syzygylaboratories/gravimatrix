@@ -1,5 +1,6 @@
 import board
 import neopixel
+import nummpy as np
 from time import sleep
 
 
@@ -22,14 +23,40 @@ pixels.fill((255, 255, 255))
 
 sleep(2)
 
-# set all pixels to max (white)
+# set all pixels to min
 pixels.fill((0, 0, 0))
 
-# loop over each pixel in order lighting them up
-for i in range(npixels):
+rows = 10
+cols = 12
 
-    print(i)
-    pixels[i] = (255, 0, 0)
-    sleep(0.2)
-    pixels[i] = (0, 0, 0)
+grid = np.ones((cols, rows))
+flattened_grid = grid.flatten()
+
+for cell, value in enumerate(flattened_grid):
+
+    # the ordering of the cells is different from the LEDs
+    row = cell // cols
+    col = cell % cols
+    if row % 2 == 1:
+        col = cols - col - 1
+    pixel = row * cols + col
+
+    print(pixel)
+    pixels[pixel] = (255, 0, 0)
+    sleep(0.1)
+    pixels[pixel] = (0, 0, 0)
+
+
+
+
+
+
+
+# loop over each pixel in order lighting them up
+# for i in range(npixels):
+
+#     print(i)
+#     pixels[i] = (255, 0, 0)
+#     sleep(0.1)
+#     pixels[i] = (0, 0, 0)
 
