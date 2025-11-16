@@ -32,6 +32,16 @@ cols = 12
 grid = np.ones((cols, rows))
 flattened_grid = grid.flatten()
 
+
+def fix_pixel(pixel):
+
+    if pixel < 5*12:
+        return pixel
+    else:
+        return pixel + 12 - (pixel * 12*5)
+
+
+
 for cell, value in enumerate(flattened_grid):
 
     # the ordering of the cells is different from the LEDs
@@ -42,11 +52,8 @@ for cell, value in enumerate(flattened_grid):
         if row % 2 == 1:
             col = cols - col - 1
         pixel = row * cols + col
-    else:
-        if row % 2 == 2:
-            col = cols - col - 1
-        pixel = row * cols + col
 
+    pixel = fix_pixel(pixel)
 
     print(pixel)
     pixels[pixel] = (255, 0, 0)
