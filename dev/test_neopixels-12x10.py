@@ -46,6 +46,9 @@ for cell, value in enumerate(flattened_grid):
     if row < rows // 2:
         if row % 2 == 1:
             col = cols - col - 1
+    else:
+        if row % 2 == 2:
+            col = cols - col - 1
         
     pixel = row * cols + col
 
