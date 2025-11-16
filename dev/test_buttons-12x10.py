@@ -17,7 +17,7 @@ pixels = neopixel.NeoPixel(board.D18, npixels, brightness=1)
 
 
 row_pins = (board.D26, board.D19, board.D13, board.D6, board.D5, board.D0, board.D11, board.D9, board.D10, board.D22)
-column_pins = (board.D14, board.D15, board.D23, board.D24, board.D25, board.D12, board.D16, board.D20, board.D21, board.D27, board.D17, board.D4)
+column_pins = (board.D14, board.D15, board.D23, board.D24, board.D12, board.D25, board.D16, board.D20, board.D21, board.D27, board.D17, board.D4)
 
 
 # THIS NEEDS TO BE UPDATED
@@ -27,7 +27,7 @@ keys = keypad.KeyMatrix(
     columns_to_anodes=False,
 )
 
-
+pixels.fill((0, 0, 0))
 
 # Simulation loop
 while True:
