@@ -43,7 +43,7 @@ for cell, value in enumerate(flattened_grid):
     row = cell // cols
     col = cell % cols
 
-    if row < rows:
+    if row < rows // 2:
         if row % 2 == 1:
             col = cols - col - 1
         
