@@ -1,6 +1,6 @@
 import board
 import neopixel
-import nummpy as np
+import numpy as np
 from time import sleep
 
 
