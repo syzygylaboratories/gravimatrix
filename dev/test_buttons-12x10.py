@@ -58,7 +58,9 @@ while True:
 
             if on[pixel] == 0:
                 pixels[pixel] = (255, 0, 0)
+                on[pixel] = 1
             else:
                 pixels[pixel] = (0, 0, 0)
+                on[pixel] = 0
 
             
