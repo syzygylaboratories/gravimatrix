@@ -15,7 +15,7 @@ npixels = cols * rows
 
 
 # Parameters
-G = 1.0          # Gravitational constant
+G = 10.0          # Gravitational constant
 dt = 0.1         # Time step
 softening = 0.5   # Softening length (epsilon)
 
@@ -118,7 +118,7 @@ while True:
                     col = cols - col - 1
                 
             pixel = row * cols + col
-            
+
             # pixels[i] = (255 * value / N, 0, 0)
             if value > 0:
                 pixels[pixel] = rainbow(value * 10)
