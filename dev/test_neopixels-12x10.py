@@ -43,11 +43,12 @@ for cell, value in enumerate(flattened_grid):
     row = cell // cols
     col = cell % cols
 
-    if row % 2 == 1:
-        col = cols - col - 1
+    if row < rows:
+        if row % 2 == 1:
+            col = cols - col - 1
+        
     pixel = row * cols + col
 
-    print(row, col, pixel)
 
     pixels[pixel] = (255, 0, 0)
     sleep(0.05)
