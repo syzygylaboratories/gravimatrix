@@ -49,13 +49,14 @@ keys = keypad.KeyMatrix(
     columns_to_anodes=False,
 )
 
-# Begin with pixels off.
-pixels.fill((0, 0, 0))  
 
 for i in range(255):
     pixels.fill(rainbow(i))
-    sleep(0.01)
-    
+    sleep(0.005)
+
+# Begin with pixels off.
+pixels.fill((0, 0, 0))  
+
 # Simulation loop
 while True:
 
